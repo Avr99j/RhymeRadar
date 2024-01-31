@@ -27,7 +27,14 @@ header h1 {
 /* search inputs section */
 .search-section {
   display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
   
+}
+
+.user-input {
+  width: 18em;
 }
 
 
@@ -38,12 +45,17 @@ header h1 {
 
 
 /* carousel */
-
-.carousel-inner {
+.suggestions-carousel {
+    background-color: black;
+    width: 40em;
     margin: 0 auto;
+}
+.carousel-inner {
+    background-color: blue;
+
 }
 
 .carousel-item {
-    width: 500px;
+    
 }
 

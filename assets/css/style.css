@@ -4,8 +4,58 @@
   padding: 0;
 }
 
+/* header and nav section */
+.navbar {
+  background-color: grey;
+}
+
 header h1 {
   font-size: 50px;
   padding: 15px 0;
   color: azure;
 }
+
+/* description card */
+.description {
+  width: 40%;
+  margin:5em auto;
+  height: 10em;
+  background-color: grey;
+  border-radius: 20px;
+}
+
+/* search inputs section */
+.search-section {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
+  
+}
+
+.user-input {
+  width: 18em;
+}
+
+
+
+
+
+
+
+
+/* carousel */
+.suggestions-carousel {
+    background-color: black;
+    width: 40em;
+    margin: 0 auto;
+}
+.carousel-inner {
+    background-color: blue;
+
+}
+
+.carousel-item {
+    
+}
+

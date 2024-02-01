@@ -4,31 +4,49 @@
   padding: 0;
 }
 
-/* header and nav section */
-.navbar {
-  background-color: grey;
+/* colour palette */
+:root {
+  --black: rgb(34, 40, 49);
+  --grey: rgb(57, 62, 70);
+  --blue: rgb(24, 137, 194);
+  --white: rgb(238, 238, 238);
 }
 
-header h1 {
+/* header and nav section */
+.navbar {
+  background-color: var(--black);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 0;
+}
+
+.heading {
   font-size: 50px;
   padding: 15px 0;
-  color: azure;
+  color: var(--blue);
 }
 
 /* description card */
 
 .description {
-  width: 60%;
-  margin: 5em auto;
-  background-color: grey;
-  border-radius: 20px;
+  width: 75%;
+  margin: 3em auto;
+  border-radius: 5px;
   line-height: 2em;
 }
 
 .rhymeradar-word {
   display: inline;
   font-size: 25px;
-  color: lightskyblue;
+  color: var(--blue);
 }
 
 /* search inputs section */
@@ -41,6 +59,16 @@ header h1 {
 
 .user-input {
   width: 18em;
+}
+
+.search-btn {
+  width: 3em;
+  border-radius: 5px;
+  background-color: var(--blue);
+}
+
+.search-btn:hover {
+  background-color: var(--white);
 }
 
 /* carousel */

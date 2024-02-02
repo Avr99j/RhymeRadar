@@ -6,36 +6,59 @@
 
 /* colour palette */
 :root {
-  --black: rgb(34, 40, 49);
+  --black: rgb(21, 21, 21);
   --grey: rgb(57, 62, 70);
   --blue: rgb(24, 137, 194);
   --white: rgb(238, 238, 238);
 }
 
+body {
+  background-image: url("/assets/images/soundwaves.jpg");
+  background-size: cover;
+}
+
 /* header and nav section */
 .navbar {
-  background-color: var(--black);
+  background-image: linear-gradient(to right, rgba(218, 0, 116, 0.832), rgb(21, 21, 21));
 }
 
 .navbar {
   display: flex;
   justify-content: center;
-  position: relative;
-}
-
-.logo {
-  position: absolute;
-  left: 0;
+  gap: 1em;
 }
 
 .heading {
   font-size: 50px;
+  font-weight: bold;
   padding: 15px 0;
   color: var(--blue);
 }
 
-/* description card */
+.home-btn {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 3px 8px;
+  color: var(--white);
+  border: 4px solid var(--white);
+  border-radius: 5px;
+  position: absolute;
+  right: 25px;
+}
 
+.home-btn:hover {
+  background-color: var(--blue);
+  color: var(--white);
+  transition: 0.2s;
+}
+
+/* wrapper */
+.wrapper {
+  /* display: none; */
+}
+
+/* description card */
 .description {
   width: 75%;
   margin: 3em auto;
@@ -53,8 +76,8 @@
 .search-section {
   display: flex;
   justify-content: center;
-  gap: 2em;
-  margin-bottom: 2em;
+  gap: 1em;
+  margin: 5em 0;
 }
 
 .user-input {
@@ -64,22 +87,30 @@
 .search-btn {
   width: 3em;
   border-radius: 5px;
-  background-color: var(--blue);
+  background-color: rgb(218, 0, 116);
 }
 
 .search-btn:hover {
-  background-color: var(--white);
+  transform: scale(1.2);
+}
+
+/* featured artis title */
+.feartured-title {
+  margin: 1em auto;
+  padding: 5px 20px;
+  background-color: rgb(218, 0, 116);
+  color: var(--black);
+  width: fit-content;
+  border-radius: 5px;
 }
 
 /* carousel */
 .suggestions-carousel {
   background-color: black;
   width: 40em;
-  margin: 0 auto;
-}
-.carousel-inner {
-  background-color: blue;
+  margin: 2em auto;
 }
 
-.carousel-item {
+.d-block {
+  border-radius: 10px;
 }

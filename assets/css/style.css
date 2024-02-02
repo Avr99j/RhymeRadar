@@ -13,7 +13,7 @@
 }
 
 body {
-  background-image: url("/assets/images/soundwaves.jpg");
+  background-image: url("../images/soundwaves.jpg");
   background-size: cover;
 }
 

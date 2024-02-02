@@ -12,11 +12,11 @@ const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&
 
 // Inlcuding options in the header elements
 const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "bb7e3ea63dmshade5864f1bcdab9p12aba7jsnf60c299cee61",
-    "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
-  },
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'bb7e3ea63dmshade5864f1bcdab9p12aba7jsnf60c299cee61',
+        'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+    }
 };
 
 // fetch request to get the song ID and lyrics response from the API and display in the section of the dom with the class name .lyrics-display

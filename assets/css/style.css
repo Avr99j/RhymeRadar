@@ -114,3 +114,51 @@ body {
 .d-block {
   border-radius: 10px;
 }
+
+/* lyrics display page */
+
+.lyrics-page {
+  display: flex;
+}
+
+.cards-container {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.lyrics-page-card {
+  height:fit-content;
+  margin: 15px;
+  max-width: 100em;
+  border: none;
+  background-color: rgba(24, 137, 194, 0.526);
+  padding: 10px;
+}
+
+.card img {
+  margin: 0 auto;
+  width:fit-content;
+}
+
+.lyrics-page-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+#lyrics-title {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+#lyrics-content {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.right-col {
+  max-width: 35em;
+}
+
+.right-card-text {
+  font-size: 20px;
+}

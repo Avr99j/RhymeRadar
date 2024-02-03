@@ -37,7 +37,17 @@ $(".search-btn").on('click', function () {
         })
         .then(function (result) {
             console.log(result)
-            console.log(queryURL)
+
+            // displaying the artist name in the html dom
+            $("#artist-name").html(result.hits[0].result.artist_names);
+
+            // fetching the image thumbnail URL
+            let imgURL = result.hits[0].result.header_image_thumbnail_url;
+            // console.log(imgURL)
+
+            // Changing the img attribute to display the img thumbnail url
+            $(".card-img-top").attr('src', imgURL);
+            // console.log(queryURL)
             let songID = result.hits[0].result.id;
 
             fetch(lyricsURL + songID, options)
@@ -45,8 +55,12 @@ $(".search-btn").on('click', function () {
                 .then((result) => {
                     $("#lyrics-title").html(result.lyrics.tracking_data.title);
                     $("#lyrics-content").html(result.lyrics.lyrics.body.html);
-                    // $("#from-artist").html()
+                    $("#album-name").html(result.lyrics.tracking_data.primary_album)
                     console.log(result);
                 });
         })
 })
+
+
+
+

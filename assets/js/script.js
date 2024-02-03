@@ -23,9 +23,11 @@ const options = {
 
 $(".search-btn").on('click', function () {
 
-    let query = document.querySelector("#song-input").value;
+    let songNameEl = document.querySelector("#song-input").value;
+    let artistNameEl = document.querySelector("#artist-input").value;
+    let query = songNameEl + " " + artistNameEl;
 
-    const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=10&page=1&text-format=html`;
+    const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=1&page=1&text-format=html`;
 
 
     // fetch request to get the song ID and lyrics response from the API and display in the section of the dom with the class name .lyrics-display
@@ -34,6 +36,8 @@ $(".search-btn").on('click', function () {
             return response.json();
         })
         .then(function (result) {
+            console.log(result)
+            console.log(queryURL)
             let songID = result.hits[0].result.id;
 
             fetch(lyricsURL + songID, options)
@@ -41,7 +45,8 @@ $(".search-btn").on('click', function () {
                 .then((result) => {
                     $("#lyrics-title").html(result.lyrics.tracking_data.title);
                     $("#lyrics-content").html(result.lyrics.lyrics.body.html);
-                    // .then((result) => console.log(result.lyrics.tracking_data.title));
+                    // $("#from-artist").html()
+                    console.log(result);
                 });
         })
 })

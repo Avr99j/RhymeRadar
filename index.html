@@ -109,7 +109,7 @@
       <div class="row row-cols-1 row-cols-md-2 g-4 cards-container">
         <div class="col">
           <div class="card lyrics-page-card left-card">
-            <div class="card-body" id="lyrics-display">
+            <div class="card-body scrollable-content" id="lyrics-display">
               <h5 class="card-title lyrics-page-title" id="lyrics-title">Lyrics title</h5>
               <p class="card-text" id="lyrics-content">There's a lady who's sure all that glitters is gold
                 And she's buying a stairway to Heaven
@@ -160,13 +160,13 @@
           <div class="col">
             <div class="card lyrics-page-card right-card" id="artist-display">
               <div class="card-body">
-                <div class="card-title lyrics-page-title artist-title-section">
-                  <div id="from-artist">From:</div>
-                  <div id="artist-name">Artist</div>
+                <div class="card-title lyrics-page-title artist-title-section row">
+                  <div class="col-sm-6 top-right-title right-card-title">Artist:</div>
+                  <div class="col-sm-6 top-right-title" id="artist-name" >Artist</div>
                 </div>
-                <div class="card-title artist-title-section">
-                  <div id="from-artist">From:</div>
-                  <div id="artist-name">Album</div>
+                <div class="card-title artist-title-section row">
+                  <div class="col-sm-6 top-right-title right-card-title">Album:</div>
+                  <div class="col-sm-6 top-right-title" id="album-name">Album</div>
                 </div>
               </div>
               <img src="./assets/images/beatles.jpg" class="card-img-top"
@@ -176,7 +176,7 @@
           <div class="col">
             <div class="card lyrics-page-card right-card">
               <div class="card-body" id="events-display">
-                <h5 class="card-title lyrics-page-title" id="events-title">Events</h5>
+                <h5 class="card-title lyrics-page-title right-card-title" id="events-title">See live:</h5>
                 <p class="card-text right-card-text" id="events-list">List of events by that artist (unordered list)</p>
               </div>
             </div>

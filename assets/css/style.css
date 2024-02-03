@@ -131,8 +131,10 @@ body {
   margin: 15px;
   max-width: 100em;
   border: none;
-  background-color: rgba(24, 137, 194, 0.526);
+  background-color: var(--black);
   padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .card img {
@@ -140,19 +142,45 @@ body {
   width: fit-content;
 }
 
-.lyrics-page-title {
+#lyrics-display {
+  max-width: 1400px;
+  height: 800px;
+}
+
+.scrollable-content {
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  height: 100%; /* Make the scrollable content take up the full height */
+  padding: 10px; 
+}
+
+.top-right-title {
+  text-align: left;
+  width: fit-content;
+  font-size: 30px;
+}
+
+.right-card-title {
+  color:white;
   text-align: center;
   font-size: 30px;
+}
+
+#artist-name, #album-name {
+  color:rgb(218, 0, 116);
 }
 
 #lyrics-title {
   font-size: 40px;
   padding-bottom: 20px;
+  color:rgb(218, 0, 116);
+  text-align: center;
 }
 
 #lyrics-content {
   font-size: 25px;
   padding: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .right-col {
@@ -161,4 +189,5 @@ body {
 
 .right-card-text {
   font-size: 20px;
+  color: white;
 }

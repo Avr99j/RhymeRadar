@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <title>RhymeRadar</title>
 </head>
 
 <body>
-  
+
   <header>
-  
+
     <!-- Top navbar with website title-->
     <nav class="navbar ">
       <img src="assets/images/rhymeRadarLogo.png" alt="logo" width="75px" class="logo" />
@@ -25,8 +25,8 @@
   </header>
 
   <main class="wrapper">
-  
-  <!-- Website description card -->
+
+    <!-- Website description card -->
     <section class="brief-description">
       <div class="card description">
         <div class="card-body">
@@ -43,7 +43,7 @@
       </div>
     </section>
 
-  <!-- Search fields -->
+    <!-- Search fields -->
     <section class="search-section">
       <input class="user-input form-control form-control-lg" type="text" placeholder="Search for Artist"
         id="artist-input" />
@@ -53,18 +53,16 @@
       <button type="button" class="search-btn"><img src="assets/images/search-logo.png" alt="" width="30px"></button>
     </section>
 
-  <!-- Carousel of featured artists -->
+    <!-- Carousel of featured artists -->
     <h3 class="featured-title">Featured Artists</h3>
     <section class="suggestions-carousel">
-      <div class="carousel slide" id="myCarousel" data-ride="carousel" data-bs-interval="100" >
+      <div class="carousel slide" id="myCarousel" data-ride="carousel" data-bs-interval="100">
         <!-- Indicators -->
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
@@ -92,13 +90,11 @@
           </div>
         </div>
         <!-- Left and right controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-          data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-          data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -109,7 +105,7 @@
     <section class="lyrics-page">
       <div class="row row-cols-1 row-cols-md-2 g-4 cards-container">
         <!-- Left side -->
-        <div class="col"> 
+        <div class="col">
           <div class="card lyrics-page-card left-card">
             <div class="card-body scrollable-content" id="lyrics-display">
               <h5 class="card-title lyrics-page-title" id="lyrics-title">Lyrics title</h5>
@@ -166,7 +162,7 @@
               <div class="card-body">
                 <div class="card-title lyrics-page-title artist-title-section row">
                   <div class="col-sm-6 top-right-title right-card-title">Artist:</div>
-                  <div class="col-sm-6 top-right-title" id="artist-name" >Artist</div>
+                  <div class="col-sm-6 top-right-title" id="artist-name">Artist</div>
                 </div>
                 <div class="card-title artist-title-section row">
                   <div class="col-sm-6 top-right-title right-card-title">Album:</div>
@@ -193,6 +189,8 @@
 
   <!-- Bootstrap JS file to enable the carousel -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <!-- Link to main JS file -->
   <script src="assets/js/script.js"></script>
 </body>

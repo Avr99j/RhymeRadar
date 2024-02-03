@@ -94,8 +94,8 @@ body {
   transform: scale(1.2);
 }
 
-/* featured artis title */
-.feartured-title {
+/* featured artist title */
+.featured-title {
   margin: 1em auto;
   padding: 5px 20px;
   background-color: rgb(218, 0, 116);
@@ -108,11 +108,24 @@ body {
 .suggestions-carousel {
   background-color: black;
   width: 40em;
-  margin: 2em auto;
+  margin: 0 auto;
 }
 
-.d-block {
+.carousel-inner {
+  width: 30em;
+  margin: 0 auto;
+}
+
+.carousel-item img {
   border-radius: 10px;
+  object-fit: contain;
+  height: 25em;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.579);
+  max-width: 10em;
+  margin: 0 auto;
 }
 
 /* lyrics display page */
@@ -148,8 +161,8 @@ body {
 }
 
 .scrollable-content {
-  overflow-y: auto; /* Enable vertical scrolling if content overflows */
-  height: 100%; /* Make the scrollable content take up the full height */
+  overflow-y: auto;
+  height: 100%; 
   padding: 10px; 
 }
 

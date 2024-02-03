@@ -45,5 +45,3 @@ $(".search-btn").on('click', function () {
                 });
         })
 })
-
-

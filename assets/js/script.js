@@ -23,8 +23,7 @@ const options = {
 
 $(".search-btn").on('click', function () {
 
-    let songNameEl = document.querySelector("#song-input").value;
-    let query = songNameEl;
+    let query = document.querySelector("#song-input").value;
 
     const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=10&page=1&text-format=html`;
 
@@ -39,9 +38,12 @@ $(".search-btn").on('click', function () {
 
             fetch(lyricsURL + songID, options)
                 .then((response) => response.json())
-                .then((result) => $(".lyrics-display").html(result.lyrics.lyrics.body.html))
-            // .then((result) => console.log(result.lyrics.lyrics.body.html));
-        });
+                .then((result) => {
+                    $("#lyrics-title").html(result.lyrics.tracking_data.title);
+                    $("#lyrics-content").html(result.lyrics.lyrics.body.html);
+                    // .then((result) => console.log(result.lyrics.tracking_data.title));
+                });
+        })
 })
 
 

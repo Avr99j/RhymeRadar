@@ -13,7 +13,7 @@
 }
 
 body {
-  background-image: url("/assets/images/soundwaves.jpg");
+  background-image: url("../images/soundwaves.jpg");
   background-size: cover;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .lyrics-page-card {
-  height:fit-content;
+  height: fit-content;
   margin: 15px;
   max-width: 100em;
   border: none;
@@ -137,7 +137,7 @@ body {
 
 .card img {
   margin: 0 auto;
-  width:fit-content;
+  width: fit-content;
 }
 
 .lyrics-page-title {

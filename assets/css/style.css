@@ -97,7 +97,7 @@ body {
 }
 
 /* featured artis title */
-.feartured-title {
+.featured-title {
   margin: 1em auto;
   padding: 5px 20px;
   background-color: rgb(218, 0, 116);
@@ -108,13 +108,26 @@ body {
 
 /* carousel */
 .suggestions-carousel {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.817);
   width: 40em;
-  margin: 2em auto;
+  margin: 0 auto;
 }
 
-.d-block {
+.carousel-inner {
+  width: 30em;
+  margin: 0 auto;
+}
+
+.carousel-item img {
   border-radius: 10px;
+  object-fit: contain;
+  height: 25em;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.579);
+  max-width: 10em;
+  margin: 0 auto;
 }
 
 /* lyrics display page */
@@ -133,8 +146,10 @@ body {
   margin: 15px;
   max-width: 100em;
   border: none;
-  background-color: rgba(24, 137, 194, 0.526);
+  background-color: var(--black);
   padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .card img {
@@ -142,19 +157,45 @@ body {
   width: fit-content;
 }
 
-.lyrics-page-title {
+#lyrics-display {
+  max-width: 1400px;
+  height: 800px;
+}
+
+.scrollable-content {
+  overflow-y: auto;
+  height: 100%; 
+  padding: 10px; 
+}
+
+.top-right-title {
+  text-align: left;
+  width: fit-content;
+  font-size: 30px;
+}
+
+.right-card-title {
+  color:white;
   text-align: center;
   font-size: 30px;
+}
+
+#artist-name, #album-name {
+  color:rgb(218, 0, 116);
 }
 
 #lyrics-title {
   font-size: 40px;
   padding-bottom: 20px;
+  color:rgb(218, 0, 116);
+  text-align: center;
 }
 
 #lyrics-content {
   font-size: 25px;
   padding: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .right-col {
@@ -163,4 +204,5 @@ body {
 
 .right-card-text {
   font-size: 20px;
+  color: white;
 }

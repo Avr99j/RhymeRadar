@@ -1,123 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>RhymeRadar</title>
-  </head>
 
-  <body>
-    <!-- logo and home button go here too -->
-    <header>
-      <nav class="navbar ">
-          <img src="assets/images/rhymeRadarLogo.png" alt="logo" width="65px" class="logo" />
-          <h1 class="heading ">RhymeRadar.</h1>
-          <a href="#" class="home-btn">Home</a>
-      </nav>
-      <div class="nav-border"></div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-    <main class="wrapper">
-      <section class="brief-description">
-        <div class="card description">
-          <div class="card-body">
-            <p class="app-description">
-              <div class="rhymeradar-word">RhymeRadar</div> is a user-friendly and innovative application designed to enhance your music discovery experience.
-              With a vast database of lyrics spanning across genres and artists, this app allows users to effortlessly search for and find
-              the words to their favorite songs. Whether you're curious about a catchy tune playing on the radio, want to decipher the
-              lyrics of a new release, or simply wish to sing along with your favorite tracks, RhymeRadar has you covered.
-            </p>
+  <title>RhymeRadar</title>
+</head>
+
+<body>
+
+  <header>
+
+    <!-- Top navbar with website title-->
+    <nav class="navbar ">
+      <img src="assets/images/rhymeRadarLogo.png" alt="logo" width="75px" class="logo" />
+      <h1 class="heading ">RhymeRadar</h1>
+      <a href="#" class="home-btn">Home</a>
+    </nav>
+    <div class="nav-border"></div>
+  </header>
+
+  <main class="wrapper">
+
+    <!-- Website description card -->
+    <section class="brief-description">
+      <div class="card description">
+        <div class="card-body">
+          <p class="app-description">
+          <div class="rhymeradar-word">RhymeRadar</div> is a user-friendly and innovative application designed to
+          enhance your music discovery experience.
+          With a vast database of lyrics spanning across genres and artists, this app allows users to effortlessly
+          search for and find
+          the words to their favorite songs. Whether you're curious about a catchy tune playing on the radio, want to
+          decipher the
+          lyrics of a new release, or simply wish to sing along with your favorite tracks, RhymeRadar has you covered.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search fields -->
+    <section class="search-section">
+      <input class="user-input form-control form-control-lg" type="text" placeholder="Search for Artist"
+        id="artist-input" />
+      <input class="user-input form-control form-control-lg" type="text" placeholder="Search for Song"
+        id="song-input" />
+
+      <button type="button" class="search-btn"><img src="assets/images/search-logo.png" alt="" width="30px"></button>
+    </section>
+
+    <!-- Carousel of featured artists -->
+    <h3 class="featured-title">Featured Artists</h3>
+    <section class="suggestions-carousel">
+      <div class="carousel slide" id="myCarousel" data-ride="carousel" data-bs-interval="100">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/images/metallica.webp" class="d-block image-fluid"
+              alt="picture of band or artist" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Artist name</h5>
+              <p>See lyrics</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/beatles.jpg" class="d-block w-100" alt="picture of band or artist" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Artist name</h5>
+              <p>See lyrics</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/beirut.jpg" class="d-block w-100" alt="picture of band or artist" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Artist name</h5>
+              <p>See lyrics</p>
+            </div>
           </div>
         </div>
-      </section>
+        <!-- Left and right controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
 
-      <section class="search-section">
-        <input 
-          class="user-input form-control form-control-lg" 
-          type="text" 
-          placeholder="Search for Artist" 
-          id="artist-input" />
-        <input 
-          class="user-input form-control form-control-lg" 
-          type="text" 
-          placeholder="Search for Song" 
-          id="song-input" />
-
-        <button type="button" class="search-btn"><img src="assets/images/search-logo.png" alt="" width="30px"></button>
-      </section>
-
-      
-      <!-- lyrics section on after search -->
-      <section class="lyrics-page">
-        <div class="lyrics-display"></div>
-        <div class="artist-display"></div>
-        <div class="album-display"></div>
-      </section>
-
-
-
-      <h3 class="feartured-title">Featured Artists</h3>
-      <section class="suggestions-carousel">
-        <div class="carousel slide">
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- lyrics section on after search (the lyrics below / picture etc are just placeholders so we could style the elements)-->
+    <section class="lyrics-page">
+      <div class="row row-cols-1 row-cols-md-2 g-4 cards-container">
+        <!-- Left side -->
+        <div class="col">
+          <div class="card lyrics-page-card left-card">
+            <div class="card-body scrollable-content" id="lyrics-display">
+              <h5 class="card-title lyrics-page-title" id="lyrics-title">Lyrics title</h5>
+              <p class="card-text" id="lyrics-content">There's a lady who's sure all that glitters is gold
+                And she's buying a stairway to Heaven
+                When she gets there she knows, if the stores are all closed
+                With a word she can get what she came for
+                Ooh, ooh, and she's buying a stairway to Heaven
+                There's a sign on the wall, but she wants to be sure
+                'Cause you know sometimes words have two meanings
+                In a tree by the brook, there's a songbird who sings
+                Sometimes all of our thoughts are misgiven
+                Ooh, it makes me wonder
+                Ooh, makes me wonder
+                There's a feeling I get when I look to the West
+                And my spirit is crying for leaving
+                In my thoughts I have seen rings of smoke through the trees
+                And the voices of those who stand looking
+                Ooh, it makes me wonder
+                Ooh, really makes me wonder
+                And it's whispered that soon if we all call the tune
+                Then the piper will lead us to reason
+                And a new day will dawn for those who stand long
+                And the forests will echo with laughter
+                Oh-oh-oh-oh-whoa
+                If there's a bustle in your hedgerow, don't be alarmed now
+                It's just a spring clean for the May queen
+                Yes, there are two paths you can go by, but in the long run
+                There's still time to change the road you're on
+                And it makes me wonder
+                Ohh, whoa
+                Your head is humming, and it won't go, in case you don't know
+                The piper's calling you to join him
+                Dear lady, can you hear the wind blow? And did you know
+                Your stairway lies on the whispering wind?
+                And as we wind on down the road
+                Our shadows taller than our soul
+                There walks a lady we all know
+                Who shines white light and wants to show
+                How everything still turns to gold
+                And if you listen very hard
+                The tune will come to you at last
+                When all are one, and one is all
+                To be a rock and not to roll
+                And she's buying a stairway to Heaven</p>
+            </div>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/assets/images/metallica.webp" class="d-block w-100 image-fluid" alt="picture of band or artist" />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Artist name</h5>
-                <p>See lyrics</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/beatles.jpg" class="d-block w-100" alt="picture of band or artist" />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Artist name</h5>
-                <p>See lyrics</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="assets/images/beirut.jpg" class="d-block w-100" alt="picture of band or artist" />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Artist name</h5>
-                <p>See lyrics</p>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-      </section>
-    </main>
+        <!-- Rigth side -->
+        <div class="col right-col">
+          <div class="col">
+            <!-- Artist and album card -->
+            <div class="card lyrics-page-card right-card" id="artist-display">
+              <div class="card-body">
+                <div class="card-title lyrics-page-title artist-title-section row">
+                  <div class="col-sm-6 top-right-title right-card-title">Artist:</div>
+                  <div class="col-sm-6 top-right-title" id="artist-name">Artist</div>
+                </div>
+                <div class="card-title artist-title-section row">
+                  <div class="col-sm-6 top-right-title right-card-title">Album:</div>
+                  <div class="col-sm-6 top-right-title" id="album-name">Album</div>
+                </div>
+              </div>
+              <img src="./assets/images/beatles.jpg" class="card-img-top"
+                alt="picture of album containing song whose lyrics are displayed">
+            </div>
+          </div>
+          <div class="col">
+            <!-- Live events card -->
+            <div class="card lyrics-page-card right-card">
+              <div class="card-body" id="events-display">
+                <h5 class="card-title lyrics-page-title right-card-title" id="events-title">See live:</h5>
+                <p class="card-text right-card-text" id="events-list">List of events by that artist (unordered list)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/js/script.js"></script>
-  </body>
+  <!-- Bootstrap JS file to enable the carousel -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Link to main JS file -->
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>

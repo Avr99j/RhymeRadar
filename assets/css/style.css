@@ -6,9 +6,8 @@
 
 /* colour palette */
 :root {
-  --black: rgb(21, 21, 21);
-  --grey: rgb(57, 62, 70);
-  --blue: rgb(24, 137, 194);
+  --black: rgb(18, 18, 18);
+  --blue: rgb(27, 175, 255);
   --white: rgb(238, 238, 238);
 }
 
@@ -17,59 +16,58 @@ body {
   background-size: cover;
 }
 
-/* header and nav section */
 .navbar {
-  background-image: linear-gradient(to right, rgba(218, 0, 116, 0.832), rgb(21, 21, 21));
+  padding: 0 10px;
 }
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   gap: 1em;
 }
 
 .heading {
-  font-size: 50px;
+  font-size: 75px;
   font-weight: bold;
-  padding: 15px 0;
-  color: var(--blue);
+  padding: 5px;
+  color: var(--white);
 }
 
 .home-btn {
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 3px 8px;
-  color: var(--white);
-  border: 4px solid var(--white);
-  border-radius: 5px;
   position: absolute;
-  right: 25px;
+  right: 50px;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .home-btn:hover {
-  background-color: var(--blue);
-  color: var(--white);
-  transition: 0.2s;
+  color: var(--blue);
+  transform: scale(1.2);
+  transition: 0.4s;
 }
 
 /* wrapper */
-.wrapper {
-  /* display: none; */
-}
 
 /* description card */
 .description {
-  width: 75%;
-  margin: 3em auto;
+  width: 50%;
+  margin: 4em auto;
   border-radius: 5px;
   line-height: 2em;
+  background-color: var(--black);
+  opacity: 80%;
+  color: var(--white);
+  font-size: 18px;
+  box-shadow: 0px 0px 10px 0px rgb(238, 238, 238);
 }
 
 .rhymeradar-word {
   display: inline;
-  font-size: 25px;
+  font-size: 30px;
   color: var(--blue);
+  font-weight: bold;
 }
 
 /* search inputs section */
@@ -77,21 +75,25 @@ body {
   display: flex;
   justify-content: center;
   gap: 1em;
-  margin: 5em 0;
+  margin-bottom: 8em;
 }
 
 .user-input {
-  width: 18em;
+  width: 16em;
 }
 
 .search-btn {
   width: 3em;
-  border-radius: 5px;
-  background-color: rgb(218, 0, 116);
+  border-radius: 50%;
+  border: none;
+
+  background-color: var(--white);
 }
 
 .search-btn:hover {
-  transform: scale(1.2);
+  box-shadow: 0px 0px 4px 2px rgb(27, 175, 255);
+  transform: scale(1.1);
+  transition: 0.4s;
 }
 
 /* featured artis title */

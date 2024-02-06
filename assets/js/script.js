@@ -59,14 +59,12 @@ $(".search-btn").on("click", function () {
       // fetching the image thumbnail URL
       let imgURL = result.hits[0].result.header_image_thumbnail_url;
       // console.log(imgURL)
+
       // displaying the artist name in the html dom
       $("#artist-name").html(result.hits[0].result.artist_names);
+
       // define concert artist name
       let conArtistName = result.hits[0].result.artist_names;
-
-      // fetching the image thumbnail URL
-      let imgURL = result.hits[0].result.header_image_thumbnail_url;
-      // console.log(imgURL)
 
       // Changing the img attribute to display the img thumbnail url
       $(".card-img-top").attr("src", imgURL);

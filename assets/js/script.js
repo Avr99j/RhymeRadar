@@ -55,16 +55,12 @@ $(".search-btn").on("click", function () {
 
       // displaying the artist name in the html dom
       $("#artist-name").html(result.hits[0].result.artist_names);
+      // define concert artist name
+      let conArtistName = result.hits[0].result.artist_names;
 
       // fetching the image thumbnail URL
       let imgURL = result.hits[0].result.header_image_thumbnail_url;
       // console.log(imgURL)
-
-      // displaying the artist name in the html dom
-      $("#artist-name").html(result.hits[0].result.artist_names);
-
-      // define concert artist name
-      let conArtistName = result.hits[0].result.artist_names;
 
       // Changing the img attribute to display the img thumbnail url
       $(".card-img-top").attr("src", imgURL);
@@ -77,7 +73,27 @@ $(".search-btn").on("click", function () {
           $("#lyrics-title").html(result.lyrics.tracking_data.title);
           $("#lyrics-content").html(result.lyrics.lyrics.body.html);
           $("#album-name").html(result.lyrics.tracking_data.primary_album);
-          console.log(result);
+
+          // fetch request to get the artist name response from the event API and display desription of event to id #events-list
+        });
+      fetch;
+      fetch(eventUrl + conArtistName, eventOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          var eventResults = result.data;
+          var eventsArr = [];
+
+          console.log(eventResults[0].description);
+          $("#events-list").html(eventResults[0].description);
+
+          // for (let i = 0; i < eventResults.length; i++) {
+          //     eventsArr.push(eventResults[i]);
+
+          // eventResults.forEach(element => {
+          //     console.log();
+          //     // $('#events-list').html(element.description);
+
+          // });
         });
     });
 });

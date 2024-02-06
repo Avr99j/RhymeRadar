@@ -10,12 +10,24 @@ let lyricsURL = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=";
 // Build up the queryURL to call the API with the 'query' as a template literal
 // const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=10&page=1&text-format=html`;
 
+
+// define event url and options
+const eventUrl = 'https://concerts-artists-events-tracker.p.rapidapi.com/artist?name=';
+const eventOptions = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '0b45ad1d65msh236cffafb3a6da2p191e4cjsn188eee869849',
+		'X-RapidAPI-Host': 'concerts-artists-events-tracker.p.rapidapi.com'
+	}
+};
+
 // Inlcuding options in the header elements
 const options = {
     method: 'GET',
     headers: {
         'X-RapidAPI-Key': '0b45ad1d65msh236cffafb3a6da2p191e4cjsn188eee869849',
         'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+        
     }
 };
 
@@ -26,6 +38,7 @@ $(".search-btn").on('click', function () {
     let songNameEl = document.querySelector("#song-input").value;
     let artistNameEl = document.querySelector("#artist-input").value;
     let query = songNameEl + " " + artistNameEl;
+
 
     const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=1&page=1&text-format=html`;
 
@@ -40,7 +53,9 @@ $(".search-btn").on('click', function () {
 
             // displaying the artist name in the html dom
             $("#artist-name").html(result.hits[0].result.artist_names);
-
+            // define concert artist name
+            let conArtistName = result.hits[0].result.artist_names;
+            
             // fetching the image thumbnail URL
             let imgURL = result.hits[0].result.header_image_thumbnail_url;
             // console.log(imgURL)
@@ -56,9 +71,32 @@ $(".search-btn").on('click', function () {
                     $("#lyrics-title").html(result.lyrics.tracking_data.title);
                     $("#lyrics-content").html(result.lyrics.lyrics.body.html);
                     $("#album-name").html(result.lyrics.tracking_data.primary_album)
-                    console.log(result);
+
+                    
+                   // fetch request to get the artist name response from the event API and display desription of event to id #events-list 
                 });
+                fetch
+                fetch(eventUrl + conArtistName, eventOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    var eventResults = result.data;
+                    var eventsArr = []
+
+                    console.log(eventResults[0].description);
+                    $('#events-list').html(eventResults[0].description);
+
+                    // for (let i = 0; i < eventResults.length; i++) {
+                    //     eventsArr.push(eventResults[i]);
+
+                    // eventResults.forEach(element => {
+                    //     console.log();
+                    //     // $('#events-list').html(element.description);
+
+                    // });
+
         })
+})
+
 })
 
 

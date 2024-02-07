@@ -45,6 +45,16 @@ const fImgUrlVar = [];
 let artist1 = [];
 let artist2 = [];
 let artist3 = [];
+let recentSearches = [];
+
+// Check if recent searches are present in local storage
+if (localStorage.getItem("recentSearches")) {
+  // Parse and assign recent searches from local storage
+  recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+}
+
+// Call the function to initially create the recent searches elements
+createRecentSearchesElements();
 
 // Fetch daily charts from genius API
 fetch(featuredUrl, featuredOptions)
@@ -86,10 +96,71 @@ fetch(featuredUrl, featuredOptions)
 $(".lyrics-page").css("display", "none");
 // click event listener for the search button
 
+// Function to update recent searches in the history box
+function createRecentSearchesElements() {
+  const recentSearchesContainer = document.getElementById("recent-searches");
+
+  // Clear existing searches
+  recentSearchesContainer.innerHTML = "";
+
+  // Add the title for recent searches
+  const titleElement = document.createElement("h3");
+  titleElement.className = "recent-searches-title";
+  titleElement.textContent = "Recent searches";
+  recentSearchesContainer.appendChild(titleElement);
+
+  // Add a trash button
+  const trashButton = document.createElement("button");
+  trashButton.className = "trash-button";
+  trashButton.id = "clear-searches";
+  trashButton.innerHTML = '<img src="assets/images/trash-icon.png" alt="trash icon" width="30px">';
+  trashButton.addEventListener("click", function () {
+    recentSearches.length = 0; // Clear the recent searches array
+    $(".history-box").css("display", "none");
+    localStorage.removeItem("recentSearches"); // Remove from local storage
+    createRecentSearchesElements(); // Recreate the HTML
+  });
+  recentSearchesContainer.appendChild(trashButton);
+
+  // Add recent searches to the container
+  recentSearches.forEach(search => {
+    const button = document.createElement("button");
+    button.className = "history-search";
+    button.textContent = search; // Display full search string
+
+    // Add an event listener to the recent search button
+    button.addEventListener("click", function () {
+      performRecentSearch(search);
+    });
+
+    recentSearchesContainer.appendChild(button);
+  });
+
+  // Save recent searches to local storage
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
+
+// Function to perform a recent search based on the clicked search string
+function performRecentSearch(searchString) {
+
+  console.log(`Clicked on recent search: ${searchString}`);
+}
+
+// click event listener for the search button
 $(".search-btn").on("click", function () {
   let songNameEl = document.querySelector("#song-input").value;
   let artistNameEl = document.querySelector("#artist-input").value;
   let query = songNameEl + " " + artistNameEl;
+  $(".history-box").css("display", "block");
+  // Update recent searches array
+  const newSearch = `${artistNameEl} - ${songNameEl}`;
+  recentSearches.unshift(newSearch); // Add to the beginning of the array
+  if (recentSearches.length > 4) {
+    recentSearches.pop(); // Keep only the latest 4 searches
+  }
+
+  // Update the HTML with recent searches
+  createRecentSearchesElements();
 
   // show lyrics page cards & hide home page
   $(".home-page").css("display", "none");
@@ -149,3 +220,12 @@ $(".search-btn").on("click", function () {
         });
     });
 });
+
+// Check if recent searches are present in local storage
+if (localStorage.getItem("recentSearches")) {
+  // Parse and assign recent searches from local storage
+  recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+}
+
+// Call the function to initially create the recent searches elements
+createRecentSearchesElements();

@@ -25,6 +25,7 @@ body {
 .navbar {
   padding: 0 10px;
   margin-bottom: 8em;
+  width: 100%;
   display: flex;
   justify-content: start;
   gap: 1em;
@@ -291,7 +292,7 @@ footer {
   box-shadow: 5px 0 10px 6px rgba(27, 175, 255, 0.359);
   background-blend-mode: soft-light;
   background-size: contain;
-  height: 12vh;
+  height: 6em;
   opacity: 90%;
   display: flex;
   align-items: flex-end;
@@ -310,7 +311,7 @@ footer p {
 .avatar-div {
   display: flex;
   gap: 1em;
-  margin-right: 4em;
+  margin-right: 2em;
 }
 
 .avatar-icon {
@@ -324,4 +325,28 @@ footer p {
   transform: scale(1.2);
   transition: 0.3s;
   background-color: var(--blue);
+}
+
+/* media queries */
+@media only screen and (max-width: 850px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .home-btn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+
+  .description {
+    width: 90%;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: fit-content;
+  }
 }

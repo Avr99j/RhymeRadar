@@ -124,7 +124,7 @@ body {
 }
 
 .carousel-inner {
-  width: 30em;
+  width: fit-content;
   margin: 0 auto;
 }
 
@@ -138,14 +138,16 @@ body {
 }
 
 .carousel-item img {
-  object-fit: contain;
+  width: fit-content;
+  max-width: 450px;
   height: 25em;
 }
 
 .carousel-caption {
   background-color: var(--black);
   opacity: 80%;
-  max-width: 10em;
+  width: fit-content;
+  padding: 1em;
   margin: 0 auto;
   border-radius: 20px;
 }

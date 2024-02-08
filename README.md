@@ -23,7 +23,18 @@ RhymeRadar is a web application that enables users to search for song lyrics by 
 
 ## Screenshots
 
+## laptop/ desktop
 
+<img src="assets/images/screenshot_1.png" height = 400px>
+<img src="assets/images/screenshot_2.png" height = 400px>
+
+## tablet
+
+<img src="assets/images/screenshot_tablet.png" height = 400px>
+
+## phone
+
+<img src="assets/images/screenshot_phone.png" height = 400px>
 
 ## Usage
 
@@ -35,21 +46,21 @@ RhymeRadar is a web application that enables users to search for song lyrics by 
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/Avr99j/RhymeRadar.git
-    ```
+   ```bash
+   git clone https://github.com/Avr99j/RhymeRadar.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd RhymeRadar
-    ```
+   ```bash
+   cd RhymeRadar
+   ```
 
 3. Open the `index.html` file in your web browser.
 
 ### OR
 
-Kindly click on the deployed portal link - https://avr99j.github.io/RhymeRadar/ 
+Kindly click on the deployed portal link - https://avr99j.github.io/RhymeRadar/
 
 ## Contributing
 

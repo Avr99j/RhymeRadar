@@ -401,7 +401,8 @@ footer p {
 
   /* lyrics page */
   .history-box {
-    margin-left: 10em;
+    margin-left: 7em;
+    min-width: 600px;
     width: 100%;
   }
 
@@ -410,7 +411,8 @@ footer p {
   }
 
   .lyrics-page-card {
-    margin-left: 10em;
+    margin-left: 6em;
+    min-width: 600px;
     width: 100%;
   }
 }

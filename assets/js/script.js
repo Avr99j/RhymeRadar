@@ -91,65 +91,87 @@ $(".lyrics-page").css("display", "none");
 
 // Function to update recent searches in the history box
 function createRecentSearchesElements() {
-    const recentSearchesContainer = document.getElementById("recent-searches");
-  
-    // Clear existing searches
-    recentSearchesContainer.innerHTML = "";
-  
-    // Add the title for recent searches
-    const titleElement = document.createElement("h3");
-    titleElement.className = "recent-searches-title";
-    titleElement.textContent = "Recent searches";
-    recentSearchesContainer.appendChild(titleElement);
-  
-    // Add a trash button
-    const trashButton = document.createElement("button");
-    trashButton.className = "trash-button";
-    trashButton.id = "clear-searches";
-    trashButton.innerHTML = '<img src="assets/images/trash-icon.png" alt="trash icon" width="30px">';
-    trashButton.addEventListener("click", function () {
-      recentSearches.length = 0; // Clear the recent searches array
-      $(".history-box").css("display", "none");
-      localStorage.removeItem("recentSearches"); // Remove from local storage
-      createRecentSearchesElements(); // Recreate the HTML
-    });
-    recentSearchesContainer.appendChild(trashButton);
-  
-    // Add recent searches to the container
-    recentSearches.forEach(search => {
-      const button = document.createElement("button");
-      button.className = "history-search";
-      button.textContent = search; // Display full search string
-  
-      // Add an event listener to the recent search button
-      button.addEventListener("click", function () {
+  const recentSearchesContainer = document.getElementById("recent-searches");
+
+  // Clear existing searches
+  recentSearchesContainer.innerHTML = "";
+
+  // Add the title for recent searches
+  const titleElement = document.createElement("h3");
+  titleElement.className = "recent-searches-title";
+  titleElement.textContent = "Recent searches";
+  recentSearchesContainer.appendChild(titleElement);
+
+  // Add a trash button
+  const trashButton = document.createElement("button");
+  trashButton.className = "trash-button";
+  trashButton.id = "clear-searches";
+  trashButton.innerHTML = '<img src="assets/images/trash-icon.png" alt="trash icon" width="30px">';
+  trashButton.addEventListener("click", function () {
+    recentSearches.length = 0; // Clear the recent searches array
+    $(".history-box").css("display", "none");
+    localStorage.removeItem("recentSearches"); // Remove from local storage
+    createRecentSearchesElements(); // Recreate the HTML
+  });
+  recentSearchesContainer.appendChild(trashButton);
+
+  // Add recent searches to the container, avoiding duplicates
+const uniqueRecentSearches = [...new Set(recentSearches)]; // Remove duplicates
+uniqueRecentSearches.forEach(search => {
+    const button = document.createElement("button");
+    button.className = "history-search";
+
+    // Display the search string based on the format
+    if (search.includes(" - ")) {
+        const [artist, song] = search.split(" - ");
+        button.textContent = song ? `${artist} - ${song}` : artist; // Display 'artist - song' or 'artist' search
+    } else if (search.includes(" ")) {
+        button.textContent = search; // Display 'the song search' or 'artist search'
+    } else {
+        button.textContent = search; // Display 'artist search'
+    }
+
+    // Add an event listener to the recent search button
+    button.addEventListener("click", function () {
         performRecentSearch(search);
-      });
-  
-      recentSearchesContainer.appendChild(button);
     });
+
+    recentSearchesContainer.appendChild(button);
+});
+
+  // Save recent searches to local storage
+  localStorage.setItem("recentSearches", JSON.stringify(uniqueRecentSearches));
+}
   
-    // Save recent searches to local storage
-    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-  }
-  
-  // Function to perform a recent search based on the clicked search string
-  function performRecentSearch(searchString) {
-  
-    console.log(`Clicked on recent search: ${searchString}`);
-  }
+// Function to perform a recent search based on the clicked search string
+function performRecentSearch(searchString) {
+  console.log(`Clicked on recent search: ${searchString}`);
+
+  // Extract artist and song names from the clicked search string
+  const [artistName, songName] = searchString.split(" - ");
+
+  // Update the input fields with the extracted artist and song names
+  document.querySelector("#artist-input").value = artistName || "";
+  document.querySelector("#song-input").value = songName || "";
+
+  // Trigger the click event for the search button to perform a new search
+  $(".search-btn").click();
+}
 
 // click event listener for the search button
 $(".search-btn").on('click', function () {
-    let songNameEl = document.querySelector("#song-input").value;
-    let artistNameEl = document.querySelector("#artist-input").value;
-    let query = songNameEl + " " + artistNameEl;
-    $(".history-box").css("display", "block");
-  // Update recent searches array
-  const newSearch = `${artistNameEl} - ${songNameEl}`;
+  let songNameEl = document.querySelector("#song-input").value;
+  let artistNameEl = document.querySelector("#artist-input").value;
+  let query = songNameEl + " " + artistNameEl;
+  $(".history-box").css("display", "block");
+
+  // Update recent searches array with correctly formatted search
+  const newSearch = artistNameEl && songNameEl
+      ? `${artistNameEl} - ${songNameEl}`
+      : artistNameEl || songNameEl || '';
   recentSearches.unshift(newSearch); // Add to the beginning of the array
   if (recentSearches.length > 4) {
-    recentSearches.pop(); // Keep only the latest 4 searches
+      recentSearches.pop(); // Keep only the latest 4 searches
   }
 
   // Update the HTML with recent searches
@@ -159,83 +181,83 @@ $(".search-btn").on('click', function () {
   $(".home-page").css("display", "none");
   $(".lyrics-page").css("display", "block");
 
-    const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=1&page=1&text_format=html`;
+  const queryURL = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${query}&per_page=1&page=1&text_format=html`;
 
-    // fetch request to get the song ID and lyrics response from the API and display in the section of the dom with the class name .lyrics-display
-    fetch(queryURL, options)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-        
-// displaying the artist name in the html dom
- $("#artist-name").html(result.hits[0].result.artist_names);
- // define concert artist name
- let conArtistName = result.hits[0].result.artist_names;
-            
-// fetching the image thumbnail URL
- let imgURL = result.hits[0].result.header_image_thumbnail_url;
-            
-// Changing the img attribute to display the img thumbnail url
-$(".card-img-top").attr('src', imgURL);
-            
-let songID = result.hits[0].result.id;
+  // fetch request to get the song ID and lyrics response from the API and display in the section of the dom with the class name .lyrics-display
+  fetch(queryURL, options)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (result) {
+          // displaying the artist name in the html dom
+          $("#artist-name").html(result.hits[0].result.artist_names);
+          // define concert artist name
+          let conArtistName = result.hits[0].result.artist_names;
 
-fetch(lyricsURL + songID + "&text_format=html", options)
-.then((response) => response.json())
-.then((result) => {
-    $("#lyrics-title").html(result.lyrics.tracking_data.title);
-    
-    // Create a jQuery object from the fetched HTML
-    var $tempElement = $('<div>').html(result.lyrics.lyrics.body.html);
+          // fetching the image thumbnail URL
+          let imgURL = result.hits[0].result.header_image_thumbnail_url;
 
-    // Remove all anchor tags (hyperlinks) from the fetched HTML
-    $tempElement.find('a').replaceWith(function() {
-        return $(this).text();
-    });
+          // Changing the img attribute to display the img thumbnail url
+          $(".card-img-top").attr('src', imgURL);
 
-    // Extract the modified HTML without hyperlinks
-    var modifiedHTML = $tempElement.html();
+          let songID = result.hits[0].result.id;
 
-    $("#lyrics-content").html(modifiedHTML);
-    $("#album-name").html(result.lyrics.tracking_data.primary_album);
-});
-    
-    fetch(eventUrl + conArtistName, eventOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      var event1 = []
-      var event2 =[]
-      var event3 =[]
-      var eventArtist = []
-      var eventVenue = []
-      var eventDate1 =[]
+          fetch(lyricsURL + songID + "&text_format=html", options)
+              .then((response) => response.json())
+              .then((result) => {
+                  $("#lyrics-title").html(result.lyrics.tracking_data.title);
 
-for (let i = 0; i <= 3; i++) {
-    var eventArtistName = result.data[i]?.name;
-    var eventVenueName = result.data[i]?.location.name;
-    var eventDate = result.data[i]?.endDate;
-    eventArtist.push(eventArtistName)
-    eventVenue.push(eventVenueName)
-    eventDate1.push(eventDate)
-}
+                  // Create a jQuery object from the fetched HTML
+                  var $tempElement = $('<div>').html(result.lyrics.lyrics.body.html);
 
-event1.push(eventArtist[0],eventVenue[0], eventDate1[0])
-event2.push(eventArtist[1], eventVenue[1], eventDate1[1])
-event3.push(eventArtist[2],eventVenue[2],eventDate1[2])
+                  // Remove all anchor tags (hyperlinks) from the fetched HTML
+                  $tempElement.find('a').replaceWith(function () {
+                      return $(this).text();
+                  });
 
-if (typeof result.data !== 'undefined' && result.data !== null && result.data.length > 0) {
-    // Add the data to your HTML using jQuery .html() method
-    $('#events-list').html(event1[1] + " " +  event1[2] + '<br>' + event2[1] + " " +  event2[2] + '<br>' + event3[1]  + " " +  event3[2]);
-  } else {
-    // Display a message indicating no events scheduled
-    $('#events-list').html('This artist does not have any events scheduled');
-  }
+                  // Extract the modified HTML without hyperlinks
+                  var modifiedHTML = $tempElement.html();
 
-    })
+                  $("#lyrics-content").html(modifiedHTML);
+                  $("#album-name").html(result.lyrics.tracking_data.primary_album);
+              });
+
+          fetch(eventUrl + conArtistName, eventOptions)
+              .then((response) => response.json())
+              .then((result) => {
+                  var event1 = []
+                  var event2 = []
+                  var event3 = []
+                  var eventArtist = []
+                  var eventVenue = []
+                  var eventDate1 = []
+
+                  for (let i = 0; i <= 3; i++) {
+                      var eventArtistName = result.data[i]?.name;
+                      var eventVenueName = result.data[i]?.location.name;
+                      var eventDate = result.data[i]?.endDate;
+                      eventArtist.push(eventArtistName)
+                      eventVenue.push(eventVenueName)
+                      eventDate1.push(eventDate)
+                  }
+
+                  event1.push(eventArtist[0], eventVenue[0], eventDate1[0])
+                  event2.push(eventArtist[1], eventVenue[1], eventDate1[1])
+                  event3.push(eventArtist[2], eventVenue[2], eventDate1[2])
+
+                  if (typeof result.data !== 'undefined' && result.data !== null && result.data.length > 0) {
+                      // Add the data to your HTML using jQuery .html() method
+                      $('#events-list').html(event1[1] + " " + event1[2] + '<br>' + event2[1] + " " + event2[2] + '<br>' + event3[1] + " " + event3[2]);
+                  } else {
+                      // Display a message indicating no events scheduled
+                      $('#events-list').html('This artist does not have any events scheduled');
+                  }
+
+              })
+      })
 })
 
-})
+
 // Check if recent searches are present in local storage
 if (localStorage.getItem("recentSearches")) {
     // Parse and assign recent searches from local storage

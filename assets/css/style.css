@@ -239,6 +239,12 @@ body {
   width: fit-content;
 }
 
+.card-img-top {
+  width: fit-content;
+  max-width: 450px;
+  height: 25em;
+}
+
 #lyrics-display {
   max-width: 1400px;
   height: 800px;

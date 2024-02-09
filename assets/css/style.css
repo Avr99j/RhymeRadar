@@ -187,7 +187,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--black);
-  width: 60%;
+  width: fit-content;
   margin: 2em auto;
   padding: 1em;
   opacity: 80%;
@@ -297,12 +297,12 @@ body {
 
 /* footer */
 footer {
-  background-image: url("/assets/images/sound_equalizer.png");
+  /* background-image: url("/assets/images/sound_equalizer.png"); */
   background-color: rgba(18, 18, 18, 0.778);
   box-shadow: 5px 0 10px 6px rgba(27, 175, 255, 0.359);
   background-blend-mode: soft-light;
   background-size: contain;
-  height: 6em;
+  height: 8em;
   opacity: 90%;
   display: flex;
   align-items: flex-end;
@@ -324,6 +324,12 @@ footer p {
   margin-right: 2em;
 }
 
+.avatar-icons {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
 .avatar-icon {
   background-color: var(--white);
   padding: 6px;
@@ -339,6 +345,10 @@ footer p {
 
 /* media queries */
 @media only screen and (max-width: 850px) {
+  body {
+    background-size: 100%;
+  }
+
   .navbar {
     flex-direction: column;
   }
@@ -348,71 +358,89 @@ footer p {
   }
 
   .home-btn {
-    position: absolute;
-    top: 10px;
-    left: 20px;
+    margin-top: 1em;
   }
 
   .description {
     width: 90%;
   }
 
+  .history-box {
+    width: fit-content;
+    margin: auto;
+  }
+
   footer {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: fit-content;
+  }
+
+  .avatar-div {
+    flex-direction: column;
+  }
+
+  .avatar-icons {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
   }
 }
 
 @media only screen and (max-width: 700px) {
+  .suggestions-carousel {
+    max-width: fit-content;
+  }
+
   .navbar {
-    min-width: 800px;
+    max-width: 800px;
   }
 
   .description {
-    min-width: 600px;
-    margin-left: 5em;
+    max-width: fit-content;
+    min-width: 300px;
+    margin: 2em auto;
   }
 
   .search-section {
     flex-direction: column;
-    gap: 3em;
-    margin-left: 16em;
-    position: relative;
+    width: fit-content;
+    margin: auto;
   }
 
   .search-btn {
     min-width: 50px;
     min-height: 50px;
-    position: absolute;
-    left: 22em;
-    top: 6em;
   }
 
   .suggestions-carousel {
-    margin-left: 5em;
+    margin: 3em auto;
   }
 
   footer {
-    min-width: 800px;
+    min-width: 600px;
     flex-direction: column;
     align-items: center;
   }
 
+  .avatar-div {
+    flex-direction: column;
+  }
+
+  .avatar-icons {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
   /* lyrics page */
   .history-box {
-    margin-left: 7em;
-    min-width: 600px;
-    width: 100%;
+    width: fit-content;
+    margin: auto;
   }
 
   #recent-searches {
-    width: 100%;
-  }
-
-  .lyrics-page-card {
-    margin-left: 6em;
-    min-width: 600px;
     width: 100%;
   }
 }

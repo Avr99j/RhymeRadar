@@ -235,7 +235,8 @@ $(".search-btn").on('click', function () {
                   for (let i = 0; i <= 3; i++) {
                       var eventArtistName = result.data[i]?.name;
                       var eventVenueName = result.data[i]?.location.name;
-                      var eventDate = result.data[i]?.endDate;
+                      var date = result.data[i]?.endDate;
+                      var eventDate = date.split("-").reverse().join("-")
                       eventArtist.push(eventArtistName)
                       eventVenue.push(eventVenueName)
                       eventDate1.push(eventDate)
